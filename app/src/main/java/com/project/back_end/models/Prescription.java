@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Document
+@Document(collection = "prescriptions")
 public class Prescription {
 
     // @Document annotation:
@@ -31,7 +31,7 @@ public class Prescription {
     // - The @NotNull annotation ensures that the patient name is required.
     // - The @Size(min = 3, max = 100) annotation ensures that the name length is
     // between 3 and 100 characters, ensuring a reasonable name length.
-    @NotNull
+    @NotNull(message = "Patient name cannot be null")
     @Size(min = 3, max = 100)
     private String patientName;
 
@@ -42,7 +42,7 @@ public class Prescription {
     // given.
     // - The @NotNull annotation ensures that the appointment ID is required for the
     // prescription.
-    @NotNull
+    @NotNull(message = "AppointmentId cannot be null")
     private Long appointmentId;
 
     // 4. 'medication' field:
@@ -52,7 +52,7 @@ public class Prescription {
     // - The @NotNull annotation ensures that the medication name is required.
     // - The @Size(min = 3, max = 100) annotation ensures that the medication name
     // is between 3 and 100 characters, which ensures meaningful medication names.
-    @NotNull
+    @NotNull(message = "Medication cannot be null")
     @Size(min = 3, max = 100)
     private String medication;
 
@@ -61,7 +61,7 @@ public class Prescription {
     // - Description:
     // - Represents the dosage information for the prescribed medication.
     // - The @NotNull annotation ensures that the dosage information is provided.
-    @NotNull
+    @NotNull(message = "Dosage cannot be null")
     private String dosage;
 
     // 6. 'doctorNotes' field:

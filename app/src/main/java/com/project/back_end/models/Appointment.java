@@ -42,7 +42,7 @@ public class Appointment {
     // - The @NotNull annotation ensures that an appointment must be associated with
     // a doctor when created.
     @ManyToOne
-    @NotNull
+    @NotNull(message = "Doctor cannot be null")
     private Doctor doctor;
 
     // 3. 'patient' field:
@@ -54,7 +54,7 @@ public class Appointment {
     // - The @NotNull annotation ensures that an appointment must be associated with
     // a patient when created.
     @ManyToOne
-    @NotNull
+    @NotNull(message = "Patient cannot be null")
     private Patient patient;
 
     // 4. 'appointmentTime' field:
@@ -65,7 +65,7 @@ public class Appointment {
     // future when the appointment is created.
     // - It uses LocalDateTime, which includes both the date and time for the
     // appointment.
-    @Future
+    @Future(message = "Appointment time must be in the future")
     private LocalDateTime appointmentTime;
 
     // 5. 'status' field:

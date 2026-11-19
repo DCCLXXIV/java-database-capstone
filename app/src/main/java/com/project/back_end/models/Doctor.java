@@ -42,7 +42,7 @@ public class Doctor {
     // - The @Size(min = 3, max = 100) annotation ensures that the name length is
     // between 3 and 100 characters.
     // - Provides validation for correct input and user experience.
-    @NotNull
+    @NotNull(message = "Name cannot be null")
     @Size(min = 3, max = 100)
     private String name;
 
@@ -53,7 +53,7 @@ public class Doctor {
     // - The @NotNull annotation ensures that a specialty must be provided.
     // - The @Size(min = 3, max = 50) annotation ensures that the specialty name is
     // between 3 and 50 characters long.
-    @NotNull
+    @NotNull(message = "Specialty cannot be null")
     @Size(min = 3, max = 50)
     private String specialty;
 
@@ -65,7 +65,7 @@ public class Doctor {
     // - The @Email annotation validates that the email address follows a valid
     // email format (e.g., doctor@example.com).
     @Email
-    @NotNull
+    @NotNull(message = "Email cannot be null")
     private String email;
 
     // 5. 'password' field:
@@ -78,7 +78,7 @@ public class Doctor {
     // - The @JsonProperty(access = JsonProperty.Access.WRITE_ONLY) annotation
     // ensures that the password is not serialized in the response (hidden from the
     // frontend).
-    @NotNull
+    @NotNull(message = "Password cannot be null")
     @Size(min = 6)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
@@ -90,8 +90,8 @@ public class Doctor {
     // - The @NotNull annotation ensures that a phone number must be provided.
     // - The @Pattern(regexp = "^[0-9]{10}$") annotation validates that the phone
     // number must be exactly 10 digits long.
-    @NotNull
-    @Pattern(regexp = "^[0-9]{10}$")
+    @NotNull(message = "Phone number cannot be null")
+    @Pattern(regexp = "^[0-9]{10}$", message = "Phone number must be 10 digits")
     private String phone;
 
     // 7. 'availableTimes' field:

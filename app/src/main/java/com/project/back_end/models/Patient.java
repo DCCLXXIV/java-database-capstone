@@ -38,7 +38,7 @@ public class Patient {
     // - The @Size(min = 3, max = 100) annotation ensures that the name length is
     // between 3 and 100 characters.
     // - Provides validation for correct input and user experience.
-    @NotNull
+    @NotNull(message = "Name cannot be null")
     @Size(min = 3, max = 100)
     private String name;
 
@@ -49,7 +49,7 @@ public class Patient {
     // - The @NotNull annotation ensures that an email address must be provided.
     // - The @Email annotation validates that the email address follows a valid
     // email format (e.g., patient@example.com).
-    @NotNull
+    @NotNull(message = "Email cannot be null")
     @Email
     private String email;
 
@@ -60,7 +60,7 @@ public class Patient {
     // - The @NotNull annotation ensures that a password must be provided.
     // - The @Size(min = 6) annotation ensures that the password must be at least 6
     // characters long.
-    @NotNull
+    @NotNull(message = "Password cannot be null")
     @Size(min = 6)
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
@@ -72,8 +72,8 @@ public class Patient {
     // - The @NotNull annotation ensures that a phone number must be provided.
     // - The @Pattern(regexp = "^[0-9]{10}$") annotation validates that the phone
     // number must be exactly 10 digits long.
-    @NotNull
-    @Pattern(regexp = "^[0-9]{10}$")
+    @NotNull(message = "Phone number cannot be null")
+    @Pattern(regexp = "^[0-9]{10}$", message = "Phone number must be 10 digits")
     private String phone;
 
     // 6. 'address' field:
@@ -83,7 +83,7 @@ public class Patient {
     // - The @NotNull annotation ensures that the address must be provided.
     // - The @Size(max = 255) annotation ensures that the address does not exceed
     // 255 characters in length, providing validation for the address input.
-    @NotNull
+    @NotNull(message = "Address cannot be null")
     @Size(max = 255)
     private String address;
 

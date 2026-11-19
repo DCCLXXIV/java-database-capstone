@@ -35,7 +35,7 @@ public class Admin {
     // - Used to log into the system.
     // - @NotNull validation ensures that this field cannot be null when creating or
     // updating an Admin.
-    @NotNull
+    @NotNull(message = "username cannot be null")
     private String username;
 
     // 3. 'password' field:
@@ -47,7 +47,7 @@ public class Admin {
     // JSON responses.
     // - @NotNull validation ensures the password cannot be null when creating or
     // updating an Admin.
-    @NotNull
+    @NotNull(message = "password cannot be null")
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
